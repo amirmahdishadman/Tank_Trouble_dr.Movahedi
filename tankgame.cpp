@@ -7,13 +7,13 @@ const int SCREEN_WIDTH = 1012;
 const int SCREEN_HEIGHT = 612;
 SDL_Window *gWindow = NULL;
 SDL_Renderer *gRenderer = NULL;
-
 SDL_Color color = {200, 100, 255};
 void Init()
 {
     gWindow = SDL_CreateWindow("tank trouble", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
 }
+//generate the walls.
 void map()
 {
     SDL_SetRenderDrawColor(gRenderer, 255, 12, 55, 255);
@@ -25,9 +25,7 @@ void map()
             {
                 for (int k = 1; k <= 4; k++)
                 {
-                    SDL_RenderDrawLine(gRenderer, gwallh[i][j].xstart,
-                                       gwallh[i][j].ystart + k - 2, gwallh[i][j].xend,
-                                       gwallh[i][j].yend + k - 2);
+                    SDL_RenderDrawLine(gRenderer, gwallh[i][j].xstart,gwallh[i][j].ystart + k - 2, gwallh[i][j].xend,gwallh[i][j].yend + k - 2);
                 }
             }
         }
@@ -46,6 +44,7 @@ void map()
         }
     }
 }
+//set the color of the lines and
 void cover()
 {
     SDL_SetRenderDrawColor(gRenderer, 0, 255, 0, 0);
@@ -87,9 +86,10 @@ void InitMap()
 }
 int main()
 {
-    srand(time(0));
+     srand(time(0));
      Init();
      InitMap();
+     //this loop will fill with tank lose .
      while(true){
      SDL_RenderPresent(gRenderer);
      cover();
