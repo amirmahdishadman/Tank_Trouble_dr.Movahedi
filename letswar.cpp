@@ -105,8 +105,9 @@ int main( int argc, char* args[] )
 	}
 	else
 	{
-		
-       while(true)
+		bool quit=false;
+		SDL_Event e;
+       while(!quit)
 		{
 		//Load media
 		if( !loadMedia(cn) )
@@ -116,19 +117,26 @@ int main( int argc, char* args[] )
 		}
 		else
 		{
+			while(SDL_PollEvent(&e)!=0)
+			{
+				if(e.type == SDL_QUIT)
+				{
+					quit=true;
+				}
+			}
 			//Apply the image
 			SDL_BlitSurface( gMap, NULL, gScreenSurface, NULL );
 			
 			//Update the surface
 			SDL_UpdateWindowSurface( gWindow );
 
-			SDL_Delay(5000);
+			
 		}
 
 	}
     }
 	
-
+	close();
 
 	return 0;
 }
