@@ -1,6 +1,7 @@
 
 //Using SDL and standard IO
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <iostream>
 
 //Screen dimension constants
@@ -40,7 +41,7 @@ bool init()
 	else
 	{
 		//Create window
-		gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+		gWindow = SDL_CreateWindow( "Tank Trouble", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
 		{
 			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
@@ -93,8 +94,10 @@ void close()
 	SDL_Quit();
 }
 
+
 int main( int argc, char* args[] )
 {
+	
     srand(time(0));
     int cn=rand()%3+1;
 	//Start up SDL and create window
