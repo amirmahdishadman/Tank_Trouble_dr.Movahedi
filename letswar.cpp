@@ -66,10 +66,13 @@ bool loadMedia(int cn)
     
  	if(cn==1)
     {gMap = SDL_LoadBMP("map1.bmp");}
+	
     if(cn==2)
     {gMap = SDL_LoadBMP("map2.bmp");}
+	
     if(cn==3)
     {gMap = SDL_LoadBMP("map3.bmp");}
+	
 	
 	if( gMap == NULL )
 	{
