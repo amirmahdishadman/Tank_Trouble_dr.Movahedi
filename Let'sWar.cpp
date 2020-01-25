@@ -137,6 +137,36 @@ void loadMedia(int cn)
 
 	
 }
+void tankmoveup1()
+{
+	 gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+     gtank1.dx = 0.1 * cos(-degree1 * 3.14 / 180);
+	 gtank1.x -= gtank1.dx;
+     gtank1.y = gtank1.dy;
+}
+void tankmovedw1()
+{
+	 gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+     gtank1.dx = 0.1 * cos(-degree1 * 3.14 / 180);
+	 gtank1.x += gtank1.dx;
+     gtank1.y -= gtank1.dy;
+     
+}
+void tankmoveup2()
+{
+	 gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+     gtank2.dx = 0.1 * cos(-degree2 * 3.14 / 180);
+	 gtank2.x -= gtank2.dx;
+     gtank2.y = gtank2.dy;
+}
+void tankmovedw2()
+{
+	 gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+     gtank2.dx = 0.1 * cos(-degree2 * 3.14 / 180);
+	 gtank2.x += gtank2.dx;
+     gtank2.y -= gtank2.dy;
+     
+}
 
 bool Tank(SDL_Event e, bool *quit)
 {
@@ -150,13 +180,13 @@ bool Tank(SDL_Event e, bool *quit)
 
     SDL_PollEvent(&e);
     if (state[SDL_SCANCODE_LEFT])
-        degree1 -= 5;
+        degree1 -= 0.2;
     if (state[SDL_SCANCODE_RIGHT])
-        degree1 += 5.2;
+        degree1 += 0.2;
     if (state[SDL_SCANCODE_A])
-        degree2 -= 5.2;
+        degree2 -= 0.2;
     if (state[SDL_SCANCODE_D])
-        degree2 += 5.2;
+        degree2 += 0.2;
 
     if (degree1 > 180)
         degree1 = -180;
@@ -166,7 +196,23 @@ bool Tank(SDL_Event e, bool *quit)
         degree2 = -180;
     if (degree2 < -180)
         degree2 = 180;
-    
+
+    if (state[SDL_SCANCODE_W])
+    {
+        tankmovedw1();
+    }
+    if (state[SDL_SCANCODE_S])
+    {
+        tankmoveup1();
+    }
+ if (state[SDL_SCANCODE_UP])
+    {
+        tankmovedw2();
+    }
+    if (state[SDL_SCANCODE_DOWN])
+    {
+        tankmoveup2();
+    }
     
     if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_KP_0)
     {
@@ -198,10 +244,12 @@ bool Tank(SDL_Event e, bool *quit)
     {
         *quit = true;
     }
-	grect1 = {gtank1.x , gtank1.y , 50, 50};
-    grect2 = {gtank2.x , gtank2.y , 50, 50};
+	grect1 = {gtank1.x , gtank1.y , 40, 40};
+    grect2 = {gtank2.x , gtank2.y , 44, 44};
     return true;
 }
+
+
 
 void lasericon(Uint32 lasertime)
 {
@@ -251,51 +299,35 @@ int main( int argc, char* args[] )
 
 			//Load media
 			while (!*quit)
-   			{
-			     			
+			{
+				while (SDL_PollEvent(&e) != 0)
+				{
+					if (e.type == SDL_QUIT)
+					{
+						*quit = true;
+					}
+				}
+				loadMedia(cn);
 				do
 				{
-					while (SDL_PollEvent(&e) != 0)
-      		    			{
-            					if (e.type == SDL_QUIT)
-           		   				{
-                					*quit = true;
-         		   				}
-       						}
-					
-					
-					
-						 	loadMedia(cn);
-							//Apply the image
-							//SDL_BlitSurface( background, NULL, gScreenSurface, NULL );
-							//SDL_BlitSurface( gMap, NULL, gScreenSurface, NULL );
-							//SDL_BlitSurface( gSurface1, NULL, gScreenSurface, &grect1 );
-							//SDL_BlitSurface( gSurface2, NULL, gScreenSurface, &grect2 );
-								SDL_RenderCopy(gRenderer, gbackgroundT, NULL, &backrect);
-								SDL_RenderCopy(gRenderer, gmapT, NULL, &maprect);
-							if (gtank1.lose == false)
-                				SDL_RenderCopyEx(gRenderer, gTexture1, NULL, &grect1, degree1, NULL, SDL_FLIP_NONE);
-          					if(gtank2.lose == false)
-                				SDL_RenderCopyEx(gRenderer, gTexture2, NULL, &grect2, degree2, NULL, SDL_FLIP_NONE);
-							if (laserflag == true)
-                				SDL_RenderCopy(gRenderer, glaser, NULL, &LaserRect);
-							//Update the surface
-							//SDL_UpdateWindowSurface( gWindow );
-							SDL_RenderPresent(gRenderer);
-					
-					
-					// for (int i = 0; i < 6; i++)
-          			// {
-               		// 	if(gbullet1[i].value == 1)
-                   	// 		gbullet1[i].move();
-              		// 	if(gbullet2[i].value == 1)
-             		//        	gbullet2[i].move();
-          			// }
-					
-				
-					}while(!Tank(e,quit) && !*quit);
+					SDL_RenderCopy(gRenderer, gbackgroundT, NULL, &backrect);
+					SDL_RenderCopy(gRenderer, gmapT, NULL, &maprect);
+					if (gtank1.lose == false)
+						SDL_RenderCopyEx(gRenderer, gTexture1, NULL, &grect1, degree1, NULL, SDL_FLIP_NONE);
+					if (gtank2.lose == false)
+						SDL_RenderCopyEx(gRenderer, gTexture2, NULL, &grect2, degree2, NULL, SDL_FLIP_NONE);
+					if (laserflag == true)
+						SDL_RenderCopy(gRenderer, glaser, NULL, &LaserRect);
+					for (int i = 0; i < 6; i++)
+					{
+						if (gbullet1[i].value == 1)
+							gbullet1[i].move();
+						if (gbullet2[i].value == 1)
+							gbullet2[i].move();
+					}
+					SDL_RenderPresent(gRenderer);
+				} while (Tank(e, quit) && !*quit);
 			}
-		close();
 	}
 	return 0;
 }

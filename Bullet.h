@@ -13,7 +13,7 @@ class bullet
     {
         x += xdelta;
         y -= ydelta;
-        filledCircleRGBA(gRenderer, x, y, rball, 0, 0, 0, 255);
+        filledCircleRGBA(gRenderer, x+20, y+20, rball, 255, 0, 0, 255);
         currentTimeball = SDL_GetTicks();
         if (currentTimeball - lastTimeball > 12000)
         {
