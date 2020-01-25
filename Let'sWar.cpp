@@ -135,14 +135,32 @@ void loadMedia(int cn)
 	
 	
 
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//movement of tanks
+
 void tankmoveup1()
 {
 	 gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
      gtank1.dx = 0.1 * cos(-degree1 * 3.14 / 180);
 	 gtank1.x -= gtank1.dx;
-     gtank1.y = gtank1.dy;
+     gtank1.y += gtank1.dy;
 }
 void tankmovedw1()
 {
@@ -157,7 +175,7 @@ void tankmoveup2()
 	 gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
      gtank2.dx = 0.1 * cos(-degree2 * 3.14 / 180);
 	 gtank2.x -= gtank2.dx;
-     gtank2.y = gtank2.dy;
+     gtank2.y += gtank2.dy;
 }
 void tankmovedw2()
 {
@@ -168,6 +186,34 @@ void tankmovedw2()
      
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//control movement and turn
 bool Tank(SDL_Event e, bool *quit)
 {
  	float a,b,c,d;
@@ -180,13 +226,13 @@ bool Tank(SDL_Event e, bool *quit)
 
     SDL_PollEvent(&e);
     if (state[SDL_SCANCODE_LEFT])
-        degree1 -= 0.2;
-    if (state[SDL_SCANCODE_RIGHT])
-        degree1 += 0.2;
-    if (state[SDL_SCANCODE_A])
         degree2 -= 0.2;
-    if (state[SDL_SCANCODE_D])
+    if (state[SDL_SCANCODE_RIGHT])
         degree2 += 0.2;
+    if (state[SDL_SCANCODE_A])
+        degree1 -= 0.2;
+    if (state[SDL_SCANCODE_D])
+        degree1 += 0.2;
 
     if (degree1 > 180)
         degree1 = -180;
