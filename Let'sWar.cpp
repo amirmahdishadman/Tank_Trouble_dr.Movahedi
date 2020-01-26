@@ -332,35 +332,3432 @@ void loadMedia(int cn)
 //movement of tanks
 
 void tankmoveup1()
-{
-	 gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
-     gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
-	 gtank1.x -= gtank1.dx;
-     gtank1.y += gtank1.dy;
-}
-void tankmovedw1()
-{
+{	
+	//map1 collision of walls
+	if(map.cn==1)
+	{
+	if(SDL_HasIntersection(&grect1,&map.borderrectx1)==true&&degree1<0)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrectx2)==true&&degree1>0)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrecty1)==true&&(degree1>90||degree1<-90))
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrecty2)==true&&degree1<90&&degree1>-90)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx1
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>0&&gtank1.y-5<map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<0&&gtank1.y+5>map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx1.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx1.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx2
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1>0&&gtank1.y-5<map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1<0&&gtank1.y+5>map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx2.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx2.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally1
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>0&&gtank1.y-5<map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<0&&gtank1.y+5>map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty1.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty1.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally2
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>0&&gtank1.y-5<map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<0&&gtank1.y+5>map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty2.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty2.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally3
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1>0&&gtank1.y-5<map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1<0&&gtank1.y+5>map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty3.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty3.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally4
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1>0&&gtank1.y-5<map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1<0&&gtank1.y+5>map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty4.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty4.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally5
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1>0&&gtank1.y-5<map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1<0&&gtank1.y+5>map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty5.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty5.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//default
+	else
+	{
 	 gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
      gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
 	 gtank1.x += gtank1.dx;
      gtank1.y -= gtank1.dy;
-     
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if(map.cn==2)
+	{
+		if(SDL_HasIntersection(&grect1,&map.borderrectx1)==true&&degree1<0)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrectx2)==true&&degree1>0)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrecty1)==true&&(degree1>90||degree1<-90))
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrecty2)==true&&degree1<90&&degree1>-90)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx1
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>0&&gtank1.y-5<map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<0&&gtank1.y+5>map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx1.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx1.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	//wally1
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>0&&gtank1.y-5<map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<0&&gtank1.y+5>map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty1.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty1.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally2
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>0&&gtank1.y-5<map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<0&&gtank1.y+5>map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty2.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty2.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally3
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1>0&&gtank1.y-5<map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1<0&&gtank1.y+5>map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty3.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty3.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally4
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1>0&&gtank1.y-5<map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1<0&&gtank1.y+5>map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty4.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty4.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally5
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1>0&&gtank1.y-5<map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1<0&&gtank1.y+5>map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty5.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty5.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//default
+	else
+	{
+	 gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+     gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+	 gtank1.x += gtank1.dx;
+     gtank1.y -= gtank1.dy;
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if(map.cn==3)
+	{
+		if(SDL_HasIntersection(&grect1,&map.borderrectx1)==true&&degree1<0)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrectx2)==true&&degree1>0)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrecty1)==true&&(degree1>90||degree1<-90))
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.borderrecty2)==true&&degree1<90&&degree1>-90)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx1
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>0&&gtank1.y-5<map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<0&&gtank1.y+5>map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx1.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx1.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx2
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1>0&&gtank1.y-5<map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1<0&&gtank1.y+5>map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx2.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx2.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx3
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&degree1>0&&gtank1.y-5<map.wallrectx3.y&&gtank1.x+36>map.wallrectx3.x&&gtank1.x+5<map.wallrectx3.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&degree1<0&&gtank1.y+5>map.wallrectx3.y&&gtank1.x+36>map.wallrectx3.x&&gtank1.x+5<map.wallrectx3.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx3.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx3.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx4
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&degree1>0&&gtank1.y-5<map.wallrectx4.y&&gtank1.x+36>map.wallrectx4.x&&gtank1.x+5<map.wallrectx4.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&degree1<0&&gtank1.y+5>map.wallrectx4.y&&gtank1.x+36>map.wallrectx4.x&&gtank1.x+5<map.wallrectx4.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx4.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx4.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx5
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&degree1>0&&gtank1.y-5<map.wallrectx5.y&&gtank1.x+36>map.wallrectx5.x&&gtank1.x+5<map.wallrectx5.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&degree1<0&&gtank1.y+5>map.wallrectx5.y&&gtank1.x+36>map.wallrectx5.x&&gtank1.x+5<map.wallrectx5.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx5.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx5.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wallx6
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&degree1>0&&gtank1.y-5<map.wallrectx6.y&&gtank1.x+36>map.wallrectx6.x&&gtank1.x+5<map.wallrectx6.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&degree1<0&&gtank1.y+5>map.wallrectx6.y&&gtank1.x+36>map.wallrectx6.x&&gtank1.x+5<map.wallrectx6.x+280)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrectx6.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrectx6.x+150)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally1
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>0&&gtank1.y-5<map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<0&&gtank1.y+5>map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty1.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty1.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//wally2
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>0&&gtank1.y-5<map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<0&&gtank1.y+5>map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+	{
+		gtank1.dy=0;
+		gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+		
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&(degree1>90||degree1<-90)&&gtank1.x>map.wallrecty2.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}
+	else{
+	if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<90&&degree1>-90&&gtank1.x<map.wallrecty2.x+35)
+	{
+		gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+        gtank1.dx = 0;
+		gtank1.x += gtank1.dx;
+        gtank1.y -= gtank1.dy;
+	}//default
+	else
+	{
+	 gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+     gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+	 gtank1.x += gtank1.dx;
+     gtank1.y -= gtank1.dy;
+	 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+	}
+
+}
+
+	
+	
 void tankmoveup2()
 {
-	 gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
-     gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
-	 gtank2.x -= gtank2.dx;
-     gtank2.y += gtank2.dy;
+//map1 collision of walls
+if(map.cn==1)
+{
+if(SDL_HasIntersection(&grect2,&map.borderrectx1)==true&&degree2<0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
 }
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrectx2)==true&&degree2>0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty1)==true&&(degree2>90||degree2<-90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty2)==true&&degree2<90&&degree2>-90)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>0&&gtank2.y-5<map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<0&&gtank2.y+5>map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2>0&&gtank2.y-5<map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2<0&&gtank2.y+5>map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>0&&gtank2.y-5<map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<0&&gtank2.y+5>map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>0&&gtank2.y-5<map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<0&&gtank2.y+5>map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally3
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2>0&&gtank2.y-5<map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2<0&&gtank2.y+5>map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally4
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2>0&&gtank2.y-5<map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2<0&&gtank2.y+5>map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally5
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2>0&&gtank2.y-5<map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2<0&&gtank2.y+5>map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//default
+else
+{
+gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+if(map.cn==2)
+{
+if(SDL_HasIntersection(&grect2,&map.borderrectx1)==true&&degree2<0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrectx2)==true&&degree2>0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty1)==true&&(degree2>90||degree2<-90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty2)==true&&degree2<90&&degree2>-90)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>0&&gtank2.y-5<map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<0&&gtank2.y+5>map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+//wally1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>0&&gtank2.y-5<map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<0&&gtank2.y+5>map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>0&&gtank2.y-5<map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<0&&gtank2.y+5>map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally3
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2>0&&gtank2.y-5<map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2<0&&gtank2.y+5>map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally4
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2>0&&gtank2.y-5<map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2<0&&gtank2.y+5>map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally5
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2>0&&gtank2.y-5<map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2<0&&gtank2.y+5>map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//default
+else
+{
+gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(map.cn==3)
+{
+if(SDL_HasIntersection(&grect2,&map.borderrectx1)==true&&degree2<0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrectx2)==true&&degree2>0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty1)==true&&(degree2>90||degree2<-90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty2)==true&&degree2<90&&degree2>-90)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>0&&gtank2.y-5<map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<0&&gtank2.y+5>map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2>0&&gtank2.y-5<map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2<0&&gtank2.y+5>map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx3
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&degree2>0&&gtank2.y-5<map.wallrectx3.y&&gtank2.x+36>map.wallrectx3.x&&gtank2.x+5<map.wallrectx3.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&degree2<0&&gtank2.y+5>map.wallrectx3.y&&gtank2.x+36>map.wallrectx3.x&&gtank2.x+5<map.wallrectx3.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx3.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx3.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx4
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&degree2>0&&gtank2.y-5<map.wallrectx4.y&&gtank2.x+36>map.wallrectx4.x&&gtank2.x+5<map.wallrectx4.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&degree2<0&&gtank2.y+5>map.wallrectx4.y&&gtank2.x+36>map.wallrectx4.x&&gtank2.x+5<map.wallrectx4.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx4.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx4.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx5
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&degree2>0&&gtank2.y-5<map.wallrectx5.y&&gtank2.x+36>map.wallrectx5.x&&gtank2.x+5<map.wallrectx5.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&degree2<0&&gtank2.y+5>map.wallrectx5.y&&gtank2.x+36>map.wallrectx5.x&&gtank2.x+5<map.wallrectx5.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx5.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx5.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wallx6
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&degree2>0&&gtank2.y-5<map.wallrectx6.y&&gtank2.x+36>map.wallrectx6.x&&gtank2.x+5<map.wallrectx6.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&degree2<0&&gtank2.y+5>map.wallrectx6.y&&gtank2.x+36>map.wallrectx6.x&&gtank2.x+5<map.wallrectx6.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrectx6.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrectx6.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>0&&gtank2.y-5<map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<0&&gtank2.y+5>map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>0&&gtank2.y-5<map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<0&&gtank2.y+5>map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&(degree2>90||degree2<-90)&&gtank2.x>map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<90&&degree2>-90&&gtank2.x<map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}//default
+else
+{
+gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x += gtank2.dx;
+gtank2.y -= gtank2.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+}
+
+
+	
+	
+
+void tankmovedw1()
+{
+//map1 collision of walls
+if(map.cn==1)
+{
+if(SDL_HasIntersection(&grect1,&map.borderrectx1)==true&&degree1>0)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrectx2)==true&&degree1<0)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrecty1)==true&&(degree1>-90&&degree1<90))
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrecty2)==true&&(degree1>90||degree1<-90))
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<0&&gtank1.y-5<map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>0&&gtank1.y+5>map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx1.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx1.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx2
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1<0&&gtank1.y-5<map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1>0&&gtank1.y+5>map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx2.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx2.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally1
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<0&&gtank1.y-5<map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>0&&gtank1.y+5>map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty1.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty1.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<0&&gtank1.y-5<map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>0&&gtank1.y+5>map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty2.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty2.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally3
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1<0&&gtank1.y-5<map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1>0&&gtank1.y+5>map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty3.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty3.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally4
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1<0&&gtank1.y-5<map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1>0&&gtank1.y+5>map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty4.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty4.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally5
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1<0&&gtank1.y-5<map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1>0&&gtank1.y+5>map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty5.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty5.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//default
+else
+{
+gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+}
+
+
+
+
+
+
+
+
+
+
+
+if(map.cn==2)
+{
+if(SDL_HasIntersection(&grect1,&map.borderrectx1)==true&&degree1>0)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrectx2)==true&&degree1<0)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrecty1)==true&&(degree1>-90&&degree1<90))
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrecty2)==true&&(degree1>90||degree1<-90))
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<0&&gtank1.y-5<map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>0&&gtank1.y+5>map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx1.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx1.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+//wally1
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<0&&gtank1.y-5<map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>0&&gtank1.y+5>map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty1.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty1.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<0&&gtank1.y-5<map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>0&&gtank1.y+5>map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty2.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty2.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally3
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1<0&&gtank1.y-5<map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1>0&&gtank1.y+5>map.wallrecty3.y&&gtank1.x+36>map.wallrecty3.x&&gtank1.x+5<map.wallrecty3.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty3.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty3)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty3.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally4
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1<0&&gtank1.y-5<map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1>0&&gtank1.y+5>map.wallrecty4.y&&gtank1.x+36>map.wallrecty4.x&&gtank1.x+5<map.wallrecty4.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty4.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty4)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty4.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally5
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1<0&&gtank1.y-5<map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1>0&&gtank1.y+5>map.wallrecty5.y&&gtank1.x+36>map.wallrecty5.x&&gtank1.x+5<map.wallrecty5.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty5.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty5)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty5.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//default
+else
+{
+gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(map.cn==3)
+{
+if(SDL_HasIntersection(&grect1,&map.borderrectx1)==true&&degree1>0)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrectx2)==true&&degree1<0)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrecty1)==true&&(degree1>-90&&degree1<90))
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.borderrecty2)==true&&(degree1>90||degree1<-90))
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1<0&&gtank1.y-5<map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>0&&gtank1.y+5>map.wallrectx1.y&&gtank1.x+36>map.wallrectx1.x&&gtank1.x+5<map.wallrectx1.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx1.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx1)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx1.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx2
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1<0&&gtank1.y-5<map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1>0&&gtank1.y+5>map.wallrectx2.y&&gtank1.x+36>map.wallrectx2.x&&gtank1.x+5<map.wallrectx2.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx2.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx2)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx2.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx3
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&degree1<0&&gtank1.y-5<map.wallrectx3.y&&gtank1.x+36>map.wallrectx3.x&&gtank1.x+5<map.wallrectx3.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&degree1>0&&gtank1.y+5>map.wallrectx3.y&&gtank1.x+36>map.wallrectx3.x&&gtank1.x+5<map.wallrectx3.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx3.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx3)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx3.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx4
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&degree1<0&&gtank1.y-5<map.wallrectx4.y&&gtank1.x+36>map.wallrectx4.x&&gtank1.x+5<map.wallrectx4.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&degree1>0&&gtank1.y+5>map.wallrectx4.y&&gtank1.x+36>map.wallrectx4.x&&gtank1.x+5<map.wallrectx4.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx4.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx4)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx4.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx5
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&degree1<0&&gtank1.y-5<map.wallrectx5.y&&gtank1.x+36>map.wallrectx5.x&&gtank1.x+5<map.wallrectx5.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&degree1>0&&gtank1.y+5>map.wallrectx5.y&&gtank1.x+36>map.wallrectx5.x&&gtank1.x+5<map.wallrectx5.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx5.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx5)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx5.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wallx6
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&degree1<0&&gtank1.y-5<map.wallrectx6.y&&gtank1.x+36>map.wallrectx6.x&&gtank1.x+5<map.wallrectx6.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&degree1>0&&gtank1.y+5>map.wallrectx6.y&&gtank1.x+36>map.wallrectx6.x&&gtank1.x+5<map.wallrectx6.x+280)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrectx6.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrectx6)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrectx6.x+150)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally1
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1<0&&gtank1.y-5<map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>0&&gtank1.y+5>map.wallrecty1.y&&gtank1.x+36>map.wallrecty1.x&&gtank1.x+5<map.wallrecty1.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty1.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty1)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty1.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1<0&&gtank1.y-5<map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>0&&gtank1.y+5>map.wallrecty2.y&&gtank1.x+36>map.wallrecty2.x&&gtank1.x+5<map.wallrecty2.x+70)
+{
+gtank1.dy=0;
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&(degree1<90||degree1<-90)&&gtank1.x>map.wallrecty2.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}
+else{
+if(SDL_HasIntersection(&grect1,&map.wallrecty2)==true&&degree1>90&&degree1>-90&&gtank1.x<map.wallrecty2.x+35)
+{
+gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0;
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}//default
+else
+{
+gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
+gtank1.x -= gtank1.dx;
+gtank1.y += gtank1.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+}
+
+
 void tankmovedw2()
 {
-	 gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
-     gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
-	 gtank2.x += gtank2.dx;
-     gtank2.y -= gtank2.dy;
-     
+//map1 collision of walls
+if(map.cn==1)
+{
+if(SDL_HasIntersection(&grect2,&map.borderrectx1)==true&&degree2>0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
 }
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrectx2)==true&&degree2<0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty1)==true&&(degree2>-90&&degree2<90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty2)==true&&(degree2>90||degree2<-90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<0&&gtank2.y-5<map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>0&&gtank2.y+5>map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2<0&&gtank2.y-5<map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2>0&&gtank2.y+5>map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<0&&gtank2.y-5<map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>0&&gtank2.y+5>map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<0&&gtank2.y-5<map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>0&&gtank2.y+5>map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally3
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2<0&&gtank2.y-5<map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2>0&&gtank2.y+5>map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally4
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2<0&&gtank2.y-5<map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2>0&&gtank2.y+5>map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally5
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2<0&&gtank2.y-5<map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2>0&&gtank2.y+5>map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//default
+else
+{
+gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+if(map.cn==2)
+{
+if(SDL_HasIntersection(&grect2,&map.borderrectx1)==true&&degree2>0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrectx2)==true&&degree2<0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty1)==true&&(degree2>-90&&degree2<90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty2)==true&&(degree2>90||degree2<-90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<0&&gtank2.y-5<map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>0&&gtank2.y+5>map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+//wally1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<0&&gtank2.y-5<map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>0&&gtank2.y+5>map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<0&&gtank2.y-5<map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>0&&gtank2.y+5>map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally3
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2<0&&gtank2.y-5<map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2>0&&gtank2.y+5>map.wallrecty3.y&&gtank2.x+36>map.wallrecty3.x&&gtank2.x+5<map.wallrecty3.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty3)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty3.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally4
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2<0&&gtank2.y-5<map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2>0&&gtank2.y+5>map.wallrecty4.y&&gtank2.x+36>map.wallrecty4.x&&gtank2.x+5<map.wallrecty4.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty4)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty4.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally5
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2<0&&gtank2.y-5<map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2>0&&gtank2.y+5>map.wallrecty5.y&&gtank2.x+36>map.wallrecty5.x&&gtank2.x+5<map.wallrecty5.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty5)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty5.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//default
+else
+{
+gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(map.cn==3)
+{
+if(SDL_HasIntersection(&grect2,&map.borderrectx1)==true&&degree2>0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrectx2)==true&&degree2<0)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty1)==true&&(degree2>-90&&degree2<90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.borderrecty2)==true&&(degree2>90||degree2<-90))
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2<0&&gtank2.y-5<map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>0&&gtank2.y+5>map.wallrectx1.y&&gtank2.x+36>map.wallrectx1.x&&gtank2.x+5<map.wallrectx1.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx1)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx1.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2<0&&gtank2.y-5<map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2>0&&gtank2.y+5>map.wallrectx2.y&&gtank2.x+36>map.wallrectx2.x&&gtank2.x+5<map.wallrectx2.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx2)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx2.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx3
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&degree2<0&&gtank2.y-5<map.wallrectx3.y&&gtank2.x+36>map.wallrectx3.x&&gtank2.x+5<map.wallrectx3.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&degree2>0&&gtank2.y+5>map.wallrectx3.y&&gtank2.x+36>map.wallrectx3.x&&gtank2.x+5<map.wallrectx3.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx3.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx3)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx3.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx4
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&degree2<0&&gtank2.y-5<map.wallrectx4.y&&gtank2.x+36>map.wallrectx4.x&&gtank2.x+5<map.wallrectx4.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&degree2>0&&gtank2.y+5>map.wallrectx4.y&&gtank2.x+36>map.wallrectx4.x&&gtank2.x+5<map.wallrectx4.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx4.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx4)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx4.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx5
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&degree2<0&&gtank2.y-5<map.wallrectx5.y&&gtank2.x+36>map.wallrectx5.x&&gtank2.x+5<map.wallrectx5.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&degree2>0&&gtank2.y+5>map.wallrectx5.y&&gtank2.x+36>map.wallrectx5.x&&gtank2.x+5<map.wallrectx5.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx5.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx5)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx5.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wallx6
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&degree2<0&&gtank2.y-5<map.wallrectx6.y&&gtank2.x+36>map.wallrectx6.x&&gtank2.x+5<map.wallrectx6.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&degree2>0&&gtank2.y+5>map.wallrectx6.y&&gtank2.x+36>map.wallrectx6.x&&gtank2.x+5<map.wallrectx6.x+280)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrectx6.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrectx6)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrectx6.x+150)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally1
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2<0&&gtank2.y-5<map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>0&&gtank2.y+5>map.wallrecty1.y&&gtank2.x+36>map.wallrecty1.x&&gtank2.x+5<map.wallrecty1.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty1)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty1.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//wally2
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2<0&&gtank2.y-5<map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>0&&gtank2.y+5>map.wallrecty2.y&&gtank2.x+36>map.wallrecty2.x&&gtank2.x+5<map.wallrecty2.x+70)
+{
+gtank2.dy=0;
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&(degree2<90||degree2<-90)&&gtank2.x>map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}
+else{
+if(SDL_HasIntersection(&grect2,&map.wallrecty2)==true&&degree2>90&&degree2>-90&&gtank2.x<map.wallrecty2.x+35)
+{
+gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0;
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}//default
+else
+{
+gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
+gtank2.x -= gtank2.dx;
+gtank2.y += gtank2.dy;
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+}
+
+
+
 
 
 
@@ -392,9 +3789,7 @@ void tankmovedw2()
 //control movement and turn
 bool Tank(SDL_Event e, bool *quit)
 {
- 	float a,b,c,d;
-    double f;
-    int k,t;
+ 	
     gtank1.ipos = (gtank1.y - 6) / 100;
     gtank1.jpos = (gtank1.x - 6) / 100;
     gtank2.ipos = (gtank2.y - 6) / 100;
@@ -422,19 +3817,20 @@ bool Tank(SDL_Event e, bool *quit)
 
     if (state[SDL_SCANCODE_W])
     {
-        tankmovedw1();
+		tankmoveup1();
+        
     }
     if (state[SDL_SCANCODE_S])
     {
-        tankmoveup1();
+        tankmovedw1();
     }
  if (state[SDL_SCANCODE_UP])
     {
-        tankmovedw2();
+        tankmoveup2();
     }
     if (state[SDL_SCANCODE_DOWN])
     {
-        tankmoveup2();
+        tankmovedw2();
     }
     
     if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_2)
@@ -452,7 +3848,7 @@ bool Tank(SDL_Event e, bool *quit)
     }
     if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_KP_0)
     {
-        if (gtank2.bullet <= 7)
+        if (gtank2.bullet <= 5)
         {
             gtank2.bullet++;
             gbullet2[gtank2.bullet - 1].lastTimeball = SDL_GetTicks();
