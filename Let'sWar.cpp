@@ -260,7 +260,7 @@ bool Tank(SDL_Event e, bool *quit)
         tankmoveup2();
     }
     
-    if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_KP_0)
+    if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_2)
     {
         if (gtank1.bullet <= 5)
         {
@@ -273,7 +273,7 @@ bool Tank(SDL_Event e, bool *quit)
             gbullet1[gtank1.bullet - 1].ydelta = 0.1 * sin(-degree1 * 3.14 / 180);
         }
     }
-    if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_2)
+    if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_KP_0)
     {
         if (gtank2.bullet <= 5)
         {
