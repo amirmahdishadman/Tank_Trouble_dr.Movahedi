@@ -152,6 +152,15 @@ void loadMedia(int cn)
    			gbackgroundT = SDL_CreateTextureFromSurface(gRenderer, background);
  	if(cn==1)
 	 {
+
+
+		 	wallrecty1.h=200;
+		    wallrecty2.h=200;
+
+			wallrecty4.h=200;
+		    wallrecty5.h=200;
+			wallrecty3.h=210;
+
 			Wallsurface = SDL_LoadBMP("wallx.bmp");
    			walltexture_x1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
 			Wallsurface = SDL_LoadBMP("wallx.bmp");
@@ -175,23 +184,29 @@ void loadMedia(int cn)
 			wallrectx2.y=575;
 
 			wallrecty1.x=215;
-			wallrecty1.y=53.3;
+			wallrecty1.y=106.7;
 
 			wallrecty2.x=215;
-			wallrecty2.y=386.6;
+			wallrecty2.y=413.4;
 
 			wallrecty3.x=605;
 			wallrecty3.y=220;
 
 			wallrecty4.x=995;
-			wallrecty4.y=53.3;
+			wallrecty4.y=106.7;;
 
 			wallrecty5.x=995;
-			wallrecty5.y=386.6;
+			wallrecty5.y=413.4;
 	}
  		
     if(cn==2)
 	{
+			wallrecty1.h=200;
+		    wallrecty2.h=200;
+
+			wallrecty4.h=200;
+		    wallrecty5.h=200;
+
 			Wallsurface = SDL_LoadBMP("wallx.bmp");
    			walltexture_x1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
 			
@@ -296,30 +311,30 @@ void loadMedia(int cn)
 
 void tankmoveup1()
 {
-	 gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
-     gtank1.dx = 0.1 * cos(-degree1 * 3.14 / 180);
+	 gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+     gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
 	 gtank1.x -= gtank1.dx;
      gtank1.y += gtank1.dy;
 }
 void tankmovedw1()
 {
-	 gtank1.dy = 0.1 * sin(-degree1 * 3.14 / 180);
-     gtank1.dx = 0.1 * cos(-degree1 * 3.14 / 180);
+	 gtank1.dy = 0.2 * sin(-degree1 * 3.14 / 180);
+     gtank1.dx = 0.2 * cos(-degree1 * 3.14 / 180);
 	 gtank1.x += gtank1.dx;
      gtank1.y -= gtank1.dy;
      
 }
 void tankmoveup2()
 {
-	 gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
-     gtank2.dx = 0.1 * cos(-degree2 * 3.14 / 180);
+	 gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+     gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
 	 gtank2.x -= gtank2.dx;
      gtank2.y += gtank2.dy;
 }
 void tankmovedw2()
 {
-	 gtank2.dy = 0.1 * sin(-degree2 * 3.14 / 180);
-     gtank2.dx = 0.1 * cos(-degree2 * 3.14 / 180);
+	 gtank2.dy = 0.2 * sin(-degree2 * 3.14 / 180);
+     gtank2.dx = 0.2 * cos(-degree2 * 3.14 / 180);
 	 gtank2.x += gtank2.dx;
      gtank2.y -= gtank2.dy;
      
@@ -365,13 +380,13 @@ bool Tank(SDL_Event e, bool *quit)
 
     SDL_PollEvent(&e);
     if (state[SDL_SCANCODE_LEFT])
-        degree2 -= 0.2;
+        degree2 -= 0.4;
     if (state[SDL_SCANCODE_RIGHT])
-        degree2 += 0.2;
+        degree2 += 0.4;
     if (state[SDL_SCANCODE_A])
-        degree1 -= 0.2;
+        degree1 -= 0.4;
     if (state[SDL_SCANCODE_D])
-        degree1 += 0.2;
+        degree1 += 0.4;
 
     if (degree1 > 180)
         degree1 = -180;
@@ -408,8 +423,8 @@ bool Tank(SDL_Event e, bool *quit)
             gbullet1[gtank1.bullet - 1].value = 1;
             gbullet1[gtank1.bullet - 1].x = gtank1.x + (25 * cos(-degree1 * 3.14 / 180));
             gbullet1[gtank1.bullet - 1].y = gtank1.y - (25 * sin(-degree1 * 3.14 / 180));
-            gbullet1[gtank1.bullet - 1].xdelta = 0.1 * cos(-degree1 * 3.14 / 180);
-            gbullet1[gtank1.bullet - 1].ydelta = 0.1 * sin(-degree1 * 3.14 / 180);
+            gbullet1[gtank1.bullet - 1].xdelta = 0.4 * cos(-degree1 * 3.14 / 180);
+            gbullet1[gtank1.bullet - 1].ydelta = 0.4 * sin(-degree1 * 3.14 / 180);
         }
     }
     if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_KP_0)
@@ -421,8 +436,8 @@ bool Tank(SDL_Event e, bool *quit)
             gbullet2[gtank2.bullet - 1].value = 1;
             gbullet2[gtank2.bullet - 1].x = gtank2.x + (25 * cos(-degree2 * 3.14 / 180));
             gbullet2[gtank2.bullet - 1].y = gtank2.y - (25 * sin(-degree2 * 3.14 / 180));
-            gbullet2[gtank2.bullet - 1].xdelta = 0.1 * cos(-degree2 * 3.14 / 180);
-            gbullet2[gtank2.bullet - 1].ydelta = 0.1 * sin(-degree2 * 3.14 / 180);
+            gbullet2[gtank2.bullet - 1].xdelta = 0.4 * cos(-degree2 * 3.14 / 180);
+            gbullet2[gtank2.bullet - 1].ydelta = 0.4 * sin(-degree2 * 3.14 / 180);
         }
     }
     if (e.type == SDL_QUIT)
