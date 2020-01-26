@@ -46,14 +46,27 @@ SDL_Surface* gSurface2 = NULL;
 SDL_Surface* gSurface3 = NULL;
 
 //The image we will load and show on the screen
-SDL_Surface* gMap= NULL;
+SDL_Surface* Wallsurface= NULL;
 SDL_Surface* background=NULL;
 
 //Textures
 SDL_Texture* gTexture1 = NULL, * gTexture2 = NULL;
 SDL_Texture* glaser = NULL;
 SDL_Texture* gbackgroundT = NULL;
-SDL_Texture* gmapT = NULL;
+SDL_Texture* walltexture_x1= NULL;
+SDL_Texture* walltexture_x2= NULL;
+SDL_Texture* walltexture_x3= NULL;
+SDL_Texture* walltexture_x4= NULL;
+SDL_Texture* walltexture_x5= NULL;
+SDL_Texture* walltexture_x6= NULL;
+
+SDL_Texture* walltexture_y1= NULL;
+SDL_Texture* walltexture_y2= NULL;
+SDL_Texture* walltexture_y3= NULL;
+SDL_Texture* walltexture_y4= NULL;
+SDL_Texture* walltexture_y5= NULL;
+SDL_Texture* walltexture_y6= NULL;
+
 
 
 
@@ -64,7 +77,21 @@ const Uint8 *state = SDL_GetKeyboardState(NULL);
 SDL_Rect grect1;
 SDL_Rect grect2; 
 SDL_Rect LaserRect;
-SDL_Rect maprect={0,0,1280,790};
+SDL_Rect wallrectx1={0,0,280,70};
+SDL_Rect wallrectx2={0,0,280,70};
+SDL_Rect wallrectx3={0,0,280,70};
+SDL_Rect wallrectx4={0,0,280,70};
+SDL_Rect wallrectx5={0,0,280,70};
+SDL_Rect wallrectx6={0,0,280,70};
+
+
+SDL_Rect wallrecty1={0,0,70,280};
+SDL_Rect wallrecty2={0,0,70,280};
+SDL_Rect wallrecty3={0,0,70,280};
+SDL_Rect wallrecty4={0,0,70,280};
+SDL_Rect wallrecty5={0,0,70,280};
+SDL_Rect wallrecty6={0,0,70,280};
+
 SDL_Rect backrect={0,0,1280,790};
 
 bool init()
@@ -124,14 +151,126 @@ void loadMedia(int cn)
   			background = SDL_LoadBMP("background.bmp");
    			gbackgroundT = SDL_CreateTextureFromSurface(gRenderer, background);
  	if(cn==1)
- 			gMap = SDL_LoadBMP("map1.bmp");
-   			gmapT = SDL_CreateTextureFromSurface(gRenderer, gMap);
+	 {
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x2 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y2 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y3 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y4 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y5 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+
+			wallrectx1.x=500;
+			wallrectx1.y=75;
+
+			wallrectx2.x=500;
+			wallrectx2.y=575;
+
+			wallrecty1.x=215;
+			wallrecty1.y=53.3;
+
+			wallrecty2.x=215;
+			wallrecty2.y=386.6;
+
+			wallrecty3.x=605;
+			wallrecty3.y=220;
+
+			wallrecty4.x=995;
+			wallrecty4.y=53.3;
+
+			wallrecty5.x=995;
+			wallrecty5.y=386.6;
+	}
+ 		
     if(cn==2)
-    		gMap = SDL_LoadBMP("map2.bmp");
-   			gmapT = SDL_CreateTextureFromSurface(gRenderer, gMap);
+	{
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y2 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y3 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y4 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y5 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+
+			wallrectx1.x=500;
+			wallrectx1.y=325;
+
+			wallrecty1.x=215;
+			wallrecty1.y=53.3;
+
+			wallrecty2.x=215;
+			wallrecty2.y=386.6;
+
+			wallrecty3.x=605;
+			wallrecty3.y=220;
+
+			wallrecty4.x=995;
+			wallrecty4.y=53.3;
+
+			wallrecty5.x=995;
+			wallrecty5.y=386.6;
+
+	}
+    		
     if(cn==3)
- 			gMap = SDL_LoadBMP("map3.bmp");
-   			gmapT = SDL_CreateTextureFromSurface(gRenderer, gMap);
+ 	{
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x2 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x3 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x4 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x5 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wallx.bmp");
+   			walltexture_x6 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y1 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+			Wallsurface = SDL_LoadBMP("wally.bmp");
+   			walltexture_y2 = SDL_CreateTextureFromSurface(gRenderer, Wallsurface);
+
+			wallrectx1.x=220;
+			wallrectx1.y=220;
+
+			wallrectx2.x=500;
+			wallrectx2.y=220;
+
+			wallrectx3.x=780;
+			wallrectx3.y=220;
+
+			wallrectx4.x=220;
+			wallrectx4.y=430;
+
+			wallrectx5.x=500;
+			wallrectx5.y=430;
+			
+			wallrectx6.x=780;
+			wallrectx6.y=430;
+
+			wallrecty1.x=150;
+			wallrecty1.y=220;
+
+			wallrecty2.x=1060;
+			wallrecty2.y=220;
+			
+	}
 	
 	
 
@@ -309,20 +448,20 @@ void lasericon(Uint32 lasertime)
 
 void close()
 {
-	//Deallocate surface
-	SDL_FreeSurface( gMap );
-	//SDL_FreeSurface( gSurface1);
-	//SDL_FreeSurface( gSurface2 );
-	gMap = NULL;
-	//gSurface1 = NULL;
-	//gSurface2 = NULL;
+	// Deallocate surface
+	// SDL_FreeSurface( gMap );
+	// SDL_FreeSurface( gSurface1);
+	// SDL_FreeSurface( gSurface2 );
+	// gMap = NULL;
+	// gSurface1 = NULL;
+	// gSurface2 = NULL;
 
-	//Destroy window
-	SDL_DestroyWindow( gWindow );
-	gWindow = NULL;
+	// Destroy window
+	// SDL_DestroyWindow( gWindow );
+	// gWindow = NULL;
 
-	//Quit SDL subsystems
-	SDL_Quit();
+	// Quit SDL subsystems
+	// SDL_Quit();
 }
 
 int main( int argc, char* args[] )
@@ -357,7 +496,40 @@ int main( int argc, char* args[] )
 				do
 				{
 					SDL_RenderCopy(gRenderer, gbackgroundT, NULL, &backrect);
-					SDL_RenderCopy(gRenderer, gmapT, NULL, &maprect);
+					if(cn==1)
+					{
+						SDL_RenderCopy(gRenderer, walltexture_x1, NULL, &wallrectx1);
+						SDL_RenderCopy(gRenderer, walltexture_x2, NULL, &wallrectx2);
+						SDL_RenderCopy(gRenderer, walltexture_y1, NULL, &wallrecty1);
+						SDL_RenderCopy(gRenderer, walltexture_y2, NULL, &wallrecty2);
+						SDL_RenderCopy(gRenderer, walltexture_y3, NULL, &wallrecty3);
+						SDL_RenderCopy(gRenderer, walltexture_y4, NULL, &wallrecty4);
+						SDL_RenderCopy(gRenderer, walltexture_y5, NULL, &wallrecty5);
+					}
+					if(cn==2)
+					{
+						SDL_RenderCopy(gRenderer, walltexture_x1, NULL, &wallrectx1);
+						SDL_RenderCopy(gRenderer, walltexture_y1, NULL, &wallrecty1);
+						SDL_RenderCopy(gRenderer, walltexture_y2, NULL, &wallrecty2);
+						SDL_RenderCopy(gRenderer, walltexture_y3, NULL, &wallrecty3);
+						SDL_RenderCopy(gRenderer, walltexture_y4, NULL, &wallrecty4);
+						SDL_RenderCopy(gRenderer, walltexture_y5, NULL, &wallrecty5);
+					}
+					if(cn==3)
+					{
+						SDL_RenderCopy(gRenderer, walltexture_x1, NULL, &wallrectx1);
+						SDL_RenderCopy(gRenderer, walltexture_x2, NULL, &wallrectx2);
+						SDL_RenderCopy(gRenderer, walltexture_x3, NULL, &wallrectx3);
+						SDL_RenderCopy(gRenderer, walltexture_x4, NULL, &wallrectx4);
+						SDL_RenderCopy(gRenderer, walltexture_x5, NULL, &wallrectx5);
+						SDL_RenderCopy(gRenderer, walltexture_x6, NULL, &wallrectx6);
+						SDL_RenderCopy(gRenderer, walltexture_y1, NULL, &wallrecty1);
+						SDL_RenderCopy(gRenderer, walltexture_y2, NULL, &wallrecty2);
+					
+
+					}
+					
+					
 					if (gtank1.lose == false)
 						SDL_RenderCopyEx(gRenderer, gTexture1, NULL, &grect1, degree1, NULL, SDL_FLIP_NONE);
 					if (gtank2.lose == false)
