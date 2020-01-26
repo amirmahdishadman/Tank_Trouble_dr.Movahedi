@@ -50,8 +50,13 @@ SDL_Surface* Wallsurface= NULL;
 SDL_Surface* background=NULL;
 
 //Textures
+
 SDL_Texture* gTexture1 = NULL, * gTexture2 = NULL;
 SDL_Texture* glaser = NULL;
+SDL_Texture* gborderx1 = NULL;
+SDL_Texture* gborderx2= NULL;
+SDL_Texture* gbordery1 = NULL;
+SDL_Texture* gbordery2 = NULL;
 SDL_Texture* gbackgroundT = NULL;
 SDL_Texture* walltexture_x1= NULL;
 SDL_Texture* walltexture_x2= NULL;
@@ -77,6 +82,11 @@ const Uint8 *state = SDL_GetKeyboardState(NULL);
 SDL_Rect grect1;
 SDL_Rect grect2; 
 SDL_Rect LaserRect;
+SDL_Rect borderrectx1={0,0,1280,8};
+SDL_Rect borderrectx2={0,712,1280,8};
+SDL_Rect borderrecty1={0,0,8,720};
+SDL_Rect borderrecty2={1272,0,8,720};
+
 SDL_Rect wallrectx1={0,0,280,70};
 SDL_Rect wallrectx2={0,0,280,70};
 SDL_Rect wallrectx3={0,0,280,70};
@@ -131,7 +141,7 @@ bool init()
 			grect1.x = gtank1.x;
 			grect1.y = gtank1.y;
     
-        	gtank2.x = 1062;
+        	gtank2.x = 1090;
         	gtank2.y = 618;
 			grect2.x = gtank2.x;
 			grect2.y = gtank2.y;
@@ -150,6 +160,12 @@ void loadMedia(int cn)
 	//Load random image
   			background = SDL_LoadBMP("background.bmp");
    			gbackgroundT = SDL_CreateTextureFromSurface(gRenderer, background);
+			background=SDL_LoadBMP("xborder.bmp");
+			gborderx1 = SDL_CreateTextureFromSurface(gRenderer, background);
+			gborderx2 = SDL_CreateTextureFromSurface(gRenderer, background);
+			background=SDL_LoadBMP("yborder.bmp");
+			gbordery1 = SDL_CreateTextureFromSurface(gRenderer, background);
+			gbordery2 = SDL_CreateTextureFromSurface(gRenderer, background);
  	if(cn==1)
 	 {
 
@@ -190,7 +206,7 @@ void loadMedia(int cn)
 			wallrecty2.y=413.4;
 
 			wallrecty3.x=605;
-			wallrecty3.y=220;
+			wallrecty3.y=255;
 
 			wallrecty4.x=995;
 			wallrecty4.y=106.7;;
@@ -225,19 +241,19 @@ void loadMedia(int cn)
 			wallrectx1.y=325;
 
 			wallrecty1.x=215;
-			wallrecty1.y=53.3;
+			wallrecty1.y=106.7;
 
 			wallrecty2.x=215;
-			wallrecty2.y=386.6;
+			wallrecty2.y=413.4;
 
 			wallrecty3.x=605;
 			wallrecty3.y=220;
 
 			wallrecty4.x=995;
-			wallrecty4.y=53.3;
+			wallrecty4.y=106.7;;
 
 			wallrecty5.x=995;
-			wallrecty5.y=386.6;
+			wallrecty5.y=413.4;
 
 	}
     		
@@ -511,6 +527,10 @@ int main( int argc, char* args[] )
 				do
 				{
 					SDL_RenderCopy(gRenderer, gbackgroundT, NULL, &backrect);
+					SDL_RenderCopy(gRenderer, gborderx1, NULL, &borderrectx1);
+					SDL_RenderCopy(gRenderer, gborderx2, NULL, &borderrectx2);
+					SDL_RenderCopy(gRenderer, gbordery1, NULL, &borderrecty1);
+					SDL_RenderCopy(gRenderer, gbordery2, NULL, &borderrecty2);
 					if(cn==1)
 					{
 						SDL_RenderCopy(gRenderer, walltexture_x1, NULL, &wallrectx1);
