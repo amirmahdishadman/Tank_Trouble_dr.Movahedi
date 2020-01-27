@@ -358,34 +358,10 @@ class bullet
 //////////////////////////////////////////////////////////////////////////////////////
 
 
-
-          //chap
-            if((x+20<=map.wallrectx1.x+0.4) && (x+20>=map.wallrectx1.x-0.4) && (y+20>map.wallrectx1.y) && (y+20<map.wallrectx1.y+70))
-            {
-            xdelta *= -1;         
-            }
-            //rast
-            if((x+20<=map.wallrectx1.x+280+0.4) && (x+20>=map.wallrectx1.x+280-0.4) && (y+20>map.wallrectx1.y) && (y+20<map.wallrectx1.y+70))
-            {
-            xdelta *= -1;         
-            }
-            //bala
-            if((x+20>=map.wallrectx1.x) && (x+20<=map.wallrectx1.x+280) && (y+20>map.wallrectx1.y-0.4) && (y+20<map.wallrectx1.y+0.4))
-            {
-            ydelta *= -1;         
-            }
-            //pain
-            if((x+20>=map.wallrectx1.x) && (x+20<=map.wallrectx1.x+280) && (y+20>map.wallrectx1.y+70-0.4) && (y+20<map.wallrectx1.y+70+0.4))
-            {
-            ydelta *= -1;         
-            }
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            
         }
+       
+
+
         
         
     
@@ -545,61 +521,11 @@ class bullet
 
 
 
-
-
-
             ////////////////////////////////////////////////////////////////////////////////////////////
 
-
-            //chap
-            if((x+20<=map.wallrectx5.x+0.4) && (x+20>=map.wallrectx5.x-0.4) && (y+20>map.wallrectx5.y) && (y+20<map.wallrectx5.y+70))
-            {
-            xdelta *= -1;         
-            }
-            //rast
-            if((x+20<=map.wallrectx5.x+280+0.4) && (x+20>=map.wallrectx5.x+280-0.4) && (y+20>map.wallrectx5.y) && (y+20<map.wallrectx5.y+70))
-            {
-            xdelta *= -1;         
-            }
-            //bala
-            if((x+20>=map.wallrectx5.x) && (x+20<=map.wallrectx5.x+280) && (y+20>map.wallrectx5.y-0.4) && (y+20<map.wallrectx5.y+0.4))
-            {
-            ydelta *= -1;         
-            }
-            //pain
-            if((x+20>=map.wallrectx5.x) && (x+20<=map.wallrectx5.x+280) && (y+20>map.wallrectx5.y+70-0.4) && (y+20<map.wallrectx5.y+70+0.4))
-            {
-            ydelta *= -1;         
-            }
-
-
-
-
-
-            ////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            //chap
-            if((x+20<=map.wallrectx6.x+0.4) && (x+20>=map.wallrectx6.x-0.4) && (y+20>map.wallrectx6.y) && (y+20<map.wallrectx6.y+70))
-            {
-            xdelta *= -1;         
-            }
-            //rast
-            if((x+20<=map.wallrectx6.x+280+0.4) && (x+20>=map.wallrectx6.x+280-0.4) && (y+20>map.wallrectx6.y) && (y+20<map.wallrectx6.y+70))
-            {
-            xdelta *= -1;         
-            }
-            //bala
-            if((x+20>=map.wallrectx6.x) && (x+20<=map.wallrectx6.x+280) && (y+20>map.wallrectx6.y-0.4) && (y+20<map.wallrectx6.y+0.4))
-            {
-            ydelta *= -1;         
-            }
-            //pain
-            if((x+20>=map.wallrectx6.x) && (x+20<=map.wallrectx6.x+280) && (y+20>map.wallrectx6.y+70-0.4) && (y+20<map.wallrectx6.y+70+0.4))
-            {
-            ydelta *= -1;         
-            }
-        }
+	}
+           
+        
         
         
     }
